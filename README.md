@@ -4,13 +4,13 @@ Role Name
 
 ## 1. Provisioning
 
-This role handles the initial setup of the server, including installing necessary packages, updating the package list, upgrading all packages, and configuring DNS settings.
+This role handles the initial setup of the server, including installing necessary packages, updating the package list, and upgrading all packages.
 
 Tasks:
 
     Install required packages.
     Run apt update and apt upgrade.
-    Configure /etc/resolv.conf.
+    
 
 ## 2. SSH Configuration
 
@@ -46,15 +46,32 @@ Tasks:
     Configure www.conf.
     Restart PHP-FPM service.
 
-Requirements
+Prerequisites
 ------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+    Ansible installed on your local machine.
+    Access to the target server(s) with SSH.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+### SSH Configuration
+- 'shh_port': Port number for SSH (default is `22`).
+- `root_login`: Whether root login is allowed (`yes` or `no`).
+- `password_authentication`: Whether password authentication is allowed (`yes` or `no`).
+- 'ssh_group': The name of group to be add.
+- 'users': The users wanted to be created and add to the group.
+- 'privileges': The privileges want to be add.
+
+### Nginx Configuration
+- `nginx_server_name`: The server name or domain for the Nginx configuration.
+- `document_root`: The directory where Nginx will be installed.
+- `nginx_site_name`: The name of the Nginx site configuration. 
+
+### PHP-FPM Configuration
+-`php_fpm_packages`: The required modules need to be install.
+- `php_fpm_user`: The user under which PHP-FPM will run.
+- `php_fpm_group`: The group under which PHP-FPM will run.
+
 
 Dependencies
 ------------
@@ -64,18 +81,20 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Below is an example of how to use roles in a playbook:
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+    ---
+- hosts: myhosts
+  become: yes
+  roles:
+    - provisioning
+    - ssh
+    - nginx
+    - PHP-FPM
+  
 
 License
 -------
 
 BSD
 
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
