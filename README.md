@@ -2,7 +2,49 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+##1. Provisioning
+
+This role handles the initial setup of the server, including installing necessary packages, updating the package list, upgrading all packages, and configuring DNS settings.
+
+Tasks:
+
+    Install required packages.
+    Run apt update and apt upgrade.
+    Configure /etc/resolv.conf.
+
+2. SSH Configuration
+
+This role configures SSH settings by modifying the actual SSH configuration file. It includes changing the SSH port, disabling root login, and password authentication. It also manages user and group creation.
+
+Tasks:
+
+    Change SSH port.
+    Disable root login.
+    Disable password authentication.
+    Create users and assign them to a group.
+    Configure sudoers file for the group.
+
+3. Nginx
+
+This role installs Nginx, removes the default site configuration, and sets up a new site configuration.
+
+Tasks:
+
+    Install Nginx.
+    Unlink default Nginx site.
+    Deploy custom Nginx configuration.
+    Enable the new site by creating a symlink in sites-enabled.
+    Restart Nginx service.
+
+4. PHP-FPM
+
+This role installs PHP-FPM and necessary PHP modules, configures the www.conf file by modifying lines instead of copying templates, and restarts PHP-FPM.
+
+Tasks:
+
+    Install PHP-FPM and required modules.
+    Configure www.conf.
+    Restart PHP-FPM service.
 
 Requirements
 ------------
