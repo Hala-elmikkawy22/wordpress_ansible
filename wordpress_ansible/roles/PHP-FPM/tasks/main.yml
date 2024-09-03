@@ -5,7 +5,15 @@
     name: "{{ item }}"
     state: present
   loop: "{{ php_fpm_packages }}"
-
+  
+- name: Configure www.conf
+  lineinfile:
+    path: /etc/php/8.2/fpm/pool.d/www.conf
+    regexp: '^listen = '
+    line: "listen = 127.0.0.1:9000"
+    state: present
+  notify: Restart PHP-FPM
+  
 - name: Configure www.conf
   lineinfile:
     path: /etc/php/8.2/fpm/pool.d/www.conf
