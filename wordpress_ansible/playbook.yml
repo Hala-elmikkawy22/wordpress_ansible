@@ -1,0 +1,9 @@
+---
+- hosts: myhosts
+  become: yes
+  roles:
+   # - provisioning
+   # - ssh
+   # - nginx
+    - PHP-FPM
+  

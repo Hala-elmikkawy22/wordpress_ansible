@@ -1,0 +1,28 @@
+
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Unlink default site
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: nginx configuration
+  become: yes
+  template:
+    src: nginx_config.j2
+    dest: /etc/nginx/sites-available/{{ nginx_site_name }}
+  
+
+
+- name: Link site to sites-enabled
+  file:
+    src: /etc/nginx/sites-available/{{ nginx_site_name }}
+    dest: /etc/nginx/sites-enabled/{{ nginx_site_name }}
+    state: link
+  notify: 
+    - restart nginx
+
+

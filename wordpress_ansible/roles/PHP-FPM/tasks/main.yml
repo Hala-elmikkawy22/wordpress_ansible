@@ -1,0 +1,19 @@
+
+
+- name: Install PHP-FPM and modules
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ php_fpm_packages }}"
+
+- name: Configure www.conf
+  lineinfile:
+    path: /etc/php/8.2/fpm/pool.d/www.conf
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - { regexp: '^user', line: 'user = www-data' }
+    - { regexp: '^group', line: 'group = www-data' }
+  notify: Restart PHP-FPM
+
+

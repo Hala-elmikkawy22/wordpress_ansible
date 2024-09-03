@@ -1,0 +1,7 @@
+
+#nginx configuration file variables
+
+server_name: "hala.mikkawy.space"
+document_root: "/var/www/html"
+
+nginx_site_name: "my_site"

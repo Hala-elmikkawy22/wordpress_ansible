@@ -1,0 +1,58 @@
+
+- name: Change SSH port
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?Port '
+    line: "Port {{ ssh_port }}"
+    state: present
+
+- name: Disable root login
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?PermitRootLogin '
+    line: "PermitRootLogin {{ root_login }}"
+    state: present
+
+- name: Disable password authentication
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?PasswordAuthentication '
+    line: "PasswordAuthentication {{ password_authentication }}"
+    state: present
+  notify: restart SSH
+  
+- name: Create group
+  group:
+    name: "{{ ssh_group }}"
+    state: present
+
+- name: create users 
+  user:
+    name: "{{ item.name }}"
+    group: "{{ ssh_group }}"
+    state: present
+  loop: "{{ users }}"
+
+- name: Sudoers Configration
+  become: yes
+  template:
+    src: sudoersd.j2
+    dest: /etc/sudoers.d/config
+    owner: root
+    group: root
+    mode: '0440'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

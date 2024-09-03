@@ -1,0 +1,19 @@
+
+ssh_port: "22"
+root_login: "no"
+password_authentication: "no"
+
+ssh_group: "team" 
+
+users:
+ - name: "hala"
+   id_rsa.pub: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCwcuRuRYSD2GY00JpJTcvNHS9vSREIH2N25Ej3O6+bF6/NqJpr6g6eQgkeSFqmWrvOg3jx+fiKB57u1ZHfNJeLhSbxyjSk88as2N1mQ/Y+J2E1Mzcx5sl8jkpUaRzPhglDnr4HQQdAdyHXHAQ/x2qljsisLI4OJLvv1x+sy6ZQNwp5QhefB9q18gga/RM6VMxLZ2LxosghjDNG23bXfSmA3n4RTp6jixqxODZMiuZP7T23QaOO77pcrRzoFCZ7yxWCNsr7BiR50zw7EY0pYmUwqSt/xJKNQTUWZIJrvMG9jpRTIoOhtyL1J0UXVfcUf6ZP7Xu1VAa+Ci31pM+xBT3o93m7BQ/866qb79TX6StjXUSdMiAafT3jaMgGAOn4jsHPKWDUkD6I4uowQ0dxOiZ9VHo+jeszk8wQvGR8bCvluEYQjx7Kv+f9iKs//fo4gE4dRQMIA8HzZ9cLbQOqOA07vxfrObHKZboTfv6KdwiJPcY0/XBLKQ6dhZzyGhjZtTU= hala@halaesam"
+ - name: "mo"
+   id_rsa.pub: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDfn1DYS0vSCsvMHo+bc3bHA+SIR6wUkTLrRv+qyAe9l3cTlxLdr4Rj/JxmEU0+od4IJ8TUs2NtuJs/8eZrmeoXU/1szRq+Y36eqg5yMN/Po10GdZo4ezjCjUb5Y9wF7UONLNHnopmMNEilA39IRoyGZP0+A/3YexCr/aD5Ip/XNymC9bbQkbtQ7pyEnKbm8biZvklhgWL4KKbLeJa05nO3Of5Z4pkgkLS+yCaKjD54jYlVLqtegTp1e5+3ZTUtsQm2iL66yRlhs00mFYQ/D6mC/0tqrRwvys8QKUTpvnYd9wDDn4K6MF1h3gaB/ysFQIe4uu6Nzim8VWcgOJ2Hq7mP6IilIqv/piLor9RkigFybUIY/PIAL5r4OtbL+T+syxSSELMzZVETApzSP7tjU8g8iOkggXqxut6zkfnwNUnY8hRNzyBATristGOTuNYo2C3Gt7TVUWN9fVJVrc1EhhFHDpCkQ3KWEaVRlyD3QEjD3GwNYcbIKYthIQKCy0NE3SGkqG89csHK17imiI8ubJYGsERlCRd6cgjHYVvlVMMMQVjK2rwyb6cMWSHGD9ljgX51zS3gzNYPDMVuN6dF7GzFHOiV2XmMxPhWo4DLtKz+68y5O+BHHQTn4/9qKTPOtPVtFOim8mQzOg+OHJ3xYhmN8nh02LqAPiUorQKWh6CeTQ== mikkawy@mikkawy-UX303LB"
+  
+privileges: "ALL=(ALL) NOPASSWD: ALL"
+
+
+
+
+
