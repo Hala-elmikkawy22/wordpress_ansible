@@ -2,7 +2,7 @@
 Role Name
 =========
 
-##1. Provisioning
+#1. Provisioning
 
 This role handles the initial setup of the server, including installing necessary packages, updating the package list, upgrading all packages, and configuring DNS settings.
 
