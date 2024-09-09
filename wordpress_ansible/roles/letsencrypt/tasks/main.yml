@@ -1,0 +1,17 @@
+- name: install certbot
+  apt: 
+    name: 
+    - certbot
+    - python3-certbot-nginx
+    state: present
+    update_cache: yes
+
+- name: Obtain SSL certificate from Let's Encrypt
+  command: >
+    certbot --nginx -n --agree-tos --email {{ email }} -d {{ domain }}
+  register: cerbot_result
+  
+- name: Reload Nginx after SSL certificate installation
+  service:
+    name: nginx
+    state: reloaded

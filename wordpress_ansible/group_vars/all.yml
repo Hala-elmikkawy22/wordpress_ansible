@@ -1,0 +1,12 @@
+
+db_name: "wordpress"
+db_user: "wordpressuser"
+db_password: "pAsswOrd"
+db_host: "localhost"
+
+wordpress_path: "/var/www/html/wordpress"
+
+server_name: "hala.mikkawy.space"
+
+email: "halelmikkawy@gmail.com"
+domain: "{{ server_name }}"

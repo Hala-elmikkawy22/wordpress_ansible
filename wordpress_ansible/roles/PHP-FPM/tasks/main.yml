@@ -6,13 +6,12 @@
     state: present
   loop: "{{ php_fpm_packages }}"
   
-- name: Configure www.conf
+- name: Configure PHP-FPM to use TCP
   lineinfile:
     path: /etc/php/8.2/fpm/pool.d/www.conf
-    regexp: '^listen = '
-    line: "listen = 127.0.0.1:9000"
-    state: present
-  notify: Restart PHP-FPM
+    regexp: '^listen =.*'
+    line: 'listen = 127.0.0.1:9000'
+
   
 - name: Configure www.conf
   lineinfile:

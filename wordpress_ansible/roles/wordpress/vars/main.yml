@@ -1,0 +1,6 @@
+wordpress_path: "/var/www/html/wordpress"
+db_name: "wordpress"
+db_user: "wordpressuser"
+db_password: "pAsswOrd"
+db_host: "localhost"
+

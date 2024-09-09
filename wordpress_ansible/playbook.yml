@@ -1,9 +1,15 @@
 ---
-- hosts: myhosts
-  become: yes
-  roles:
-   # - provisioning
-   # - ssh
-   # - nginx
+#hosts: myhosts
+-  hosts: all
+   remote_user: root
+   become: yes
+   vars_files:
+    - group_vars/all.yml
+   roles:
+    - provisioning
+    - ssh
+    - nginx
     - PHP-FPM
-  
+    - mysql
+    - wordpress      
+    - letsencrypt
